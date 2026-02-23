@@ -14,10 +14,10 @@ const MapSection = () => {
             Location
           </span>
           <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">
-            Explore <span className="gradient-text">Gandimaisamma</span>
+            Explore <span className="gradient-text">Hyderabad</span>
           </h2>
           <p className="text-muted-foreground max-w-lg mx-auto">
-            All our hostels are located in and around Gandimaisamma, Hyderabad — well-connected to IT hubs, colleges, and transport.
+            Our properties are spread across Hyderabad — well-connected to IT hubs, colleges, and transport.
           </p>
         </motion.div>
 
