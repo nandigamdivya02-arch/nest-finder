@@ -40,7 +40,7 @@ const HeroSection = () => {
           >
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/20 text-primary-foreground text-sm font-medium backdrop-blur-sm mb-6">
               <MapPin className="w-4 h-4" />
-              Gandimaisamma, Hyderabad
+              Hyderabad & Surrounding Areas
             </span>
           </motion.div>
 
@@ -61,7 +61,7 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-lg md:text-xl text-primary-foreground/80 mb-10 max-w-lg"
           >
-            Discover premium hostels and PG accommodations in Gandimaisamma. 
+            Discover houses, hostels, and PG accommodations across Hyderabad. 
             Affordable, safe, and comfortable living for students & professionals.
           </motion.p>
 
@@ -75,9 +75,9 @@ const HeroSection = () => {
             <div className="flex flex-col sm:flex-row gap-2">
               <div className="flex-1 flex items-center gap-2 px-4 py-3 rounded-xl bg-background/50">
                 <MapPin className="w-4 h-4 text-muted-foreground shrink-0" />
-                <input
+                 <input
                   type="text"
-                  placeholder="Gandimaisamma, Hyderabad"
+                  placeholder="Search in Hyderabad..."
                   className="w-full bg-transparent text-sm outline-none placeholder:text-muted-foreground text-foreground"
                 />
               </div>
@@ -107,8 +107,8 @@ const HeroSection = () => {
             className="flex gap-8 mt-10"
           >
             {[
-              { value: "8+", label: "Hostels" },
-              { value: "500+", label: "Happy Residents" },
+              { value: "50+", label: "Properties" },
+              { value: "1000+", label: "Happy Residents" },
               { value: "4.5", label: "Avg Rating" },
             ].map((stat) => (
               <div key={stat.label}>

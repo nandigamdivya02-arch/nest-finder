@@ -11,10 +11,10 @@ const Footer = () => {
               <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
                 <Home className="w-5 h-5 text-primary-foreground" />
               </div>
-              <span className="text-xl font-display font-bold">StayNest</span>
+              <span className="text-xl font-display font-bold">HomeHunt</span>
             </Link>
             <p className="text-sm text-primary-foreground/60 leading-relaxed">
-              Your trusted platform for finding the perfect hostel and PG accommodation in Gandimaisamma, Hyderabad.
+              Your trusted platform for finding houses, hostels, and PG accommodations across Hyderabad.
             </p>
           </div>
 
@@ -61,7 +61,7 @@ const Footer = () => {
 
         <div className="border-t border-primary-foreground/10 mt-12 pt-8 text-center">
           <p className="text-sm text-primary-foreground/40">
-            © 2026 StayNest. All rights reserved. Made with ❤️ in Hyderabad.
+            © 2026 HomeHunt. All rights reserved. Made with ❤️ in Hyderabad.
           </p>
         </div>
       </div>

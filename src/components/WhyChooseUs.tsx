@@ -45,7 +45,7 @@ const WhyChooseUs = () => {
           className="text-center mb-14"
         >
           <span className="inline-block px-4 py-1.5 rounded-full bg-coral-light text-accent text-sm font-semibold mb-4">
-            Why StayNest
+            Why HomeHunt
           </span>
           <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">
             Why Choose <span className="gradient-text">Us?</span>

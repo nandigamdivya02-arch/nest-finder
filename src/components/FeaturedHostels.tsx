@@ -21,10 +21,10 @@ const FeaturedHostels = () => {
             Top Rated
           </span>
           <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">
-            Featured <span className="gradient-text">Hostels</span>
+            Featured <span className="gradient-text">Properties</span>
           </h2>
           <p className="text-muted-foreground max-w-lg mx-auto">
-            Hand-picked accommodations in Gandimaisamma with the best reviews, 
+            Hand-picked houses, hostels, and PGs across Hyderabad with the best reviews, 
             amenities, and value for money.
           </p>
         </motion.div>
