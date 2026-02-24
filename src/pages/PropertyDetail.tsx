@@ -46,12 +46,20 @@ const PropertyDetail = () => {
                 className="bg-card rounded-2xl overflow-hidden border border-border shadow-3d"
               >
                 <div className="relative h-64 md:h-80 bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-20 h-20 rounded-2xl gradient-hero-bg flex items-center justify-center mx-auto mb-3">
-                      <Users className="w-10 h-10 text-primary-foreground" />
+                  {hostel.images.length > 0 ? (
+                    <img
+                      src={hostel.images[0]}
+                      alt={hostel.name}
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <div className="text-center">
+                      <div className="w-20 h-20 rounded-2xl gradient-hero-bg flex items-center justify-center mx-auto mb-3">
+                        <Users className="w-10 h-10 text-primary-foreground" />
+                      </div>
+                      <p className="text-muted-foreground font-medium">{hostel.name}</p>
                     </div>
-                    <p className="text-muted-foreground font-medium">{hostel.name}</p>
-                  </div>
+                  )}
                 </div>
                 <div className="p-6 md:p-8">
                   <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
