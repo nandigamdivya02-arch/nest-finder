@@ -33,14 +33,23 @@ const HostelCard = ({ hostel, index }: HostelCardProps) => {
         <div className="card-3d-inner bg-card rounded-2xl overflow-hidden border border-border hover-lift">
           {/* Image */}
           <div className="relative h-48 overflow-hidden bg-gradient-to-br from-primary/20 to-accent/20">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="text-center">
-                <div className="w-16 h-16 rounded-2xl gradient-hero-bg flex items-center justify-center mx-auto mb-2">
-                  <Users className="w-8 h-8 text-primary-foreground" />
+            {hostel.images.length > 0 ? (
+              <img
+                src={hostel.images[0]}
+                alt={hostel.name}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                loading="lazy"
+              />
+            ) : (
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="text-center">
+                  <div className="w-16 h-16 rounded-2xl gradient-hero-bg flex items-center justify-center mx-auto mb-2">
+                    <Users className="w-8 h-8 text-primary-foreground" />
+                  </div>
+                  <p className="text-xs text-muted-foreground font-medium">{hostel.roomTypes.length} room types</p>
                 </div>
-                <p className="text-xs text-muted-foreground font-medium">{hostel.roomTypes.length} room types</p>
               </div>
-            </div>
+            )}
             
             {/* Badges */}
             <div className="absolute top-3 left-3 flex gap-2">
