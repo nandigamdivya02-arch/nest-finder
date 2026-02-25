@@ -1,7 +1,16 @@
 import { motion } from "framer-motion";
-import { Search, MapPin, IndianRupee, BedDouble } from "lucide-react";
+import { Search, MapPin, IndianRupee, BedDouble, Home as HomeIcon } from "lucide-react";
 import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-hostel.jpg";
+
+const floatingBuildings = [
+  { x: "10%", y: "20%", size: 40, delay: 0, duration: 7 },
+  { x: "75%", y: "15%", size: 50, delay: 1.5, duration: 9 },
+  { x: "85%", y: "55%", size: 35, delay: 3, duration: 6 },
+  { x: "60%", y: "70%", size: 45, delay: 0.5, duration: 8 },
+  { x: "25%", y: "65%", size: 30, delay: 2, duration: 10 },
+  { x: "45%", y: "10%", size: 38, delay: 4, duration: 7.5 },
+];
 
 const HeroSection = () => {
   return (
@@ -17,8 +26,36 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-foreground/80 via-foreground/50 to-transparent" />
       </div>
 
-      {/* Animated floating shapes */}
+      {/* Animated floating buildings */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {floatingBuildings.map((b, i) => (
+          <motion.div
+            key={i}
+            className="absolute"
+            style={{ left: b.x, top: b.y }}
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{
+              opacity: [0, 0.15, 0.15, 0],
+              scale: [0.5, 1, 1, 0.5],
+              y: [-20, 20, -20],
+              rotate: [0, 5, -5, 0],
+            }}
+            transition={{
+              duration: b.duration,
+              repeat: Infinity,
+              delay: b.delay,
+              ease: "easeInOut",
+            }}
+          >
+            <div
+              className="rounded-xl bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/10 flex items-center justify-center"
+              style={{ width: b.size, height: b.size }}
+            >
+              <HomeIcon className="text-primary-foreground/30" style={{ width: b.size * 0.5, height: b.size * 0.5 }} />
+            </div>
+          </motion.div>
+        ))}
+
         <motion.div
           animate={{ y: [-20, 20, -20], rotate: [0, 5, 0] }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
@@ -29,6 +66,27 @@ const HeroSection = () => {
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
           className="absolute bottom-20 left-10 w-96 h-96 rounded-full bg-accent/10 blur-3xl"
         />
+        {/* Particle dots */}
+        {Array.from({ length: 12 }).map((_, i) => (
+          <motion.div
+            key={`particle-${i}`}
+            className="absolute w-1.5 h-1.5 rounded-full bg-primary-foreground/20"
+            style={{
+              left: `${10 + Math.random() * 80}%`,
+              top: `${10 + Math.random() * 80}%`,
+            }}
+            animate={{
+              y: [0, -30, 0],
+              opacity: [0, 0.6, 0],
+            }}
+            transition={{
+              duration: 3 + Math.random() * 3,
+              repeat: Infinity,
+              delay: Math.random() * 4,
+              ease: "easeInOut",
+            }}
+          />
+        ))}
       </div>
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10 pt-24">
@@ -52,7 +110,13 @@ const HeroSection = () => {
           >
             Find Your
             <br />
-            <span className="text-accent">Perfect Stay</span>
+            <motion.span
+              className="text-accent inline-block"
+              animate={{ scale: [1, 1.02, 1] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+            >
+              Perfect Stay
+            </motion.span>
           </motion.h1>
 
           <motion.p
@@ -110,11 +174,16 @@ const HeroSection = () => {
               { value: "50+", label: "Properties" },
               { value: "1000+", label: "Happy Residents" },
               { value: "4.5", label: "Avg Rating" },
-            ].map((stat) => (
-              <div key={stat.label}>
+            ].map((stat, i) => (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, scale: 0.5 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: 0.7 + i * 0.15 }}
+              >
                 <p className="text-2xl md:text-3xl font-display font-bold text-primary-foreground">{stat.value}</p>
                 <p className="text-sm text-primary-foreground/60">{stat.label}</p>
-              </div>
+              </motion.div>
             ))}
           </motion.div>
         </div>

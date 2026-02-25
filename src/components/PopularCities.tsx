@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { MapPin, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useRef } from "react";
 
 const cities = [
   {
@@ -35,9 +36,25 @@ const cities = [
   },
 ];
 
+const marqueeVariants = {
+  animate: {
+    x: [0, -1200],
+    transition: {
+      x: {
+        repeat: Infinity,
+        repeatType: "loop" as const,
+        duration: 25,
+        ease: "linear",
+      },
+    },
+  },
+};
+
 const PopularCities = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+
   return (
-    <section className="py-20 lg:py-28">
+    <section className="py-20 lg:py-28 overflow-hidden">
       <div className="container mx-auto px-4 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -57,42 +74,46 @@ const PopularCities = () => {
             Browse properties across the most popular neighborhoods in Hyderabad.
           </p>
         </motion.div>
+      </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 lg:gap-6">
-          {cities.map((city, i) => (
-            <motion.div
-              key={city.name}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.08 }}
+      {/* Flowing marquee row */}
+      <div ref={containerRef} className="relative w-full overflow-hidden">
+        <motion.div
+          className="flex gap-5 w-max"
+          variants={marqueeVariants}
+          animate="animate"
+        >
+          {[...cities, ...cities].map((city, i) => (
+            <Link
+              key={`${city.name}-${i}`}
+              to="/listings"
+              className="group relative block rounded-2xl overflow-hidden w-[280px] md:w-[320px] aspect-[4/3] hover-lift shrink-0"
             >
-              <Link
-                to="/listings"
-                className="group relative block rounded-2xl overflow-hidden aspect-[4/3] hover-lift"
+              <img
+                src={city.image}
+                alt={`Properties in ${city.name}, Hyderabad`}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/20 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-4 lg:p-5">
+                <h3 className="text-lg lg:text-xl font-display font-bold text-primary-foreground">
+                  {city.name}
+                </h3>
+                <p className="text-sm text-primary-foreground/70">
+                  {city.properties} properties
+                </p>
+              </div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileHover={{ opacity: 1, scale: 1 }}
+                className="absolute top-3 right-3 w-8 h-8 rounded-full bg-primary-foreground/20 backdrop-blur-sm flex items-center justify-center"
               >
-                <img
-                  src={city.image}
-                  alt={`Properties in ${city.name}, Hyderabad`}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/20 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-4 lg:p-5">
-                  <h3 className="text-lg lg:text-xl font-display font-bold text-primary-foreground">
-                    {city.name}
-                  </h3>
-                  <p className="text-sm text-primary-foreground/70">
-                    {city.properties} properties
-                  </p>
-                </div>
-                <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-primary-foreground/20 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                  <ArrowRight className="w-4 h-4 text-primary-foreground" />
-                </div>
-              </Link>
-            </motion.div>
+                <ArrowRight className="w-4 h-4 text-primary-foreground" />
+              </motion.div>
+            </Link>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

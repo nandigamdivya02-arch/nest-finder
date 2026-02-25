@@ -47,11 +47,12 @@ const Testimonials = () => {
           {testimonials.map((t, i) => (
             <motion.div
               key={t.name}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: i % 2 === 0 ? -40 : 40, rotateY: 10 }}
+              whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.15 }}
-              className="bg-card rounded-2xl p-7 border border-border hover-lift relative"
+              transition={{ duration: 0.6, delay: i * 0.15, type: "spring" }}
+              whileHover={{ y: -8, scale: 1.02 }}
+              className="bg-card rounded-2xl p-7 border border-border relative hover:shadow-lg transition-shadow"
             >
               <Quote className="w-10 h-10 text-primary/10 absolute top-6 right-6" />
               <div className="flex gap-0.5 mb-4">
