@@ -41,13 +41,17 @@ const FeaturedHostels = () => {
           viewport={{ once: true }}
           className="text-center mt-12"
         >
-          <Link
-            to="/listings"
-            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-primary text-primary-foreground font-semibold hover:opacity-90 transition-all shadow-glow"
-          >
-            View All Properties
-            <ArrowRight className="w-4 h-4" />
-          </Link>
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <Link
+              to="/listings"
+              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-primary text-primary-foreground font-semibold hover:opacity-90 transition-all shadow-glow"
+            >
+              View All Properties
+              <motion.span animate={{ x: [0, 5, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
+                <ArrowRight className="w-4 h-4" />
+              </motion.span>
+            </Link>
+          </motion.div>
         </motion.div>
       </div>
     </section>

@@ -59,16 +59,21 @@ const WhyChooseUs = () => {
           {features.map((feature, i) => (
             <motion.div
               key={feature.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 40, rotateX: 15 }}
+              whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
+              transition={{ duration: 0.6, delay: i * 0.12, type: "spring", stiffness: 100 }}
+              whileHover={{ y: -8, scale: 1.02 }}
               className="card-3d"
             >
-              <div className="card-3d-inner bg-card rounded-2xl p-7 border border-border hover-lift">
-                <div className="w-14 h-14 rounded-2xl gradient-hero-bg flex items-center justify-center mb-5">
+              <div className="card-3d-inner bg-card rounded-2xl p-7 border border-border hover:shadow-lg transition-shadow">
+                <motion.div
+                  className="w-14 h-14 rounded-2xl gradient-hero-bg flex items-center justify-center mb-5"
+                  whileHover={{ rotate: 10, scale: 1.1 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
                   <feature.icon className="w-7 h-7 text-primary-foreground" />
-                </div>
+                </motion.div>
                 <h3 className="text-lg font-display font-bold mb-2">{feature.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{feature.description}</p>
               </div>
