@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Home, Search, CalendarDays, User } from "lucide-react";
+import { Menu, X, Home, Search, CalendarDays, User, MessageCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import ThemeToggle from "./ThemeToggle";
 
@@ -12,6 +12,7 @@ const Navbar = () => {
     { to: "/", label: "Home", icon: Home },
     { to: "/listings", label: "Properties", icon: Search },
     { to: "/listings", label: "Bookings", icon: CalendarDays },
+    { to: "/#help-contact", label: "Help & Contact", icon: MessageCircle },
   ];
 
   return (
@@ -33,17 +34,28 @@ const Navbar = () => {
             </Link>
 
             <div className="hidden md:flex items-center gap-8">
-              {links.map((link) => (
-                <Link
-                  key={link.label}
-                  to={link.to}
-                  className={`text-sm font-medium transition-colors hover:text-primary ${
-                    location.pathname === link.to ? "text-primary" : "text-muted-foreground"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              ))}
+              {links.map((link) => {
+                const isHash = link.to.startsWith("/#");
+                const handleClick = (e: React.MouseEvent) => {
+                  if (isHash) {
+                    e.preventDefault();
+                    const id = link.to.replace("/#", "");
+                    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+                  }
+                };
+                return (
+                  <Link
+                    key={link.label}
+                    to={isHash ? "/" : link.to}
+                    onClick={handleClick}
+                    className={`text-sm font-medium transition-colors hover:text-primary ${
+                      location.pathname === link.to ? "text-primary" : "text-muted-foreground"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
             </div>
 
             <div className="hidden md:flex items-center gap-3">
@@ -75,17 +87,28 @@ const Navbar = () => {
               className="md:hidden glass border-t border-border"
             >
               <div className="px-4 py-4 space-y-2">
-                {links.map((link) => (
-                  <Link
-                    key={link.label}
-                    to={link.to}
-                    onClick={() => setIsOpen(false)}
-                    className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-secondary transition-colors"
-                  >
-                    <link.icon className="w-5 h-5 text-primary" />
-                    <span className="font-medium">{link.label}</span>
-                  </Link>
-                ))}
+                {links.map((link) => {
+                  const isHash = link.to.startsWith("/#");
+                  const handleClick = (e: React.MouseEvent) => {
+                    setIsOpen(false);
+                    if (isHash) {
+                      e.preventDefault();
+                      const id = link.to.replace("/#", "");
+                      setTimeout(() => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" }), 100);
+                    }
+                  };
+                  return (
+                    <Link
+                      key={link.label}
+                      to={isHash ? "/" : link.to}
+                      onClick={handleClick}
+                      className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-secondary transition-colors"
+                    >
+                      <link.icon className="w-5 h-5 text-primary" />
+                      <span className="font-medium">{link.label}</span>
+                    </Link>
+                  );
+                })}
               </div>
             </motion.div>
           )}
