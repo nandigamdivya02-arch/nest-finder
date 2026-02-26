@@ -1,14 +1,17 @@
+import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Star, MapPin, Phone, ArrowLeft, Users, Zap, Check, IndianRupee } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import HostelCard from "@/components/HostelCard";
+import BookingDialog from "@/components/BookingDialog";
 import { hostels, amenityIcons } from "@/data/hostels";
 
 const PropertyDetail = () => {
   const { id } = useParams();
   const hostel = hostels.find((h) => h.id === id);
+  const [bookingMode, setBookingMode] = useState<"book" | "visit" | null>(null);
 
   if (!hostel) {
     return (
@@ -176,10 +179,16 @@ const PropertyDetail = () => {
                     </div>
                   </div>
 
-                  <button className="w-full py-3.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 transition-opacity shadow-glow mb-3">
+                  <button
+                    onClick={() => setBookingMode("book")}
+                    className="w-full py-3.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 transition-opacity shadow-glow mb-3"
+                  >
                     Book Now
                   </button>
-                  <button className="w-full py-3.5 rounded-xl border-2 border-primary text-primary font-semibold text-sm hover:bg-primary/5 transition-colors">
+                  <button
+                    onClick={() => setBookingMode("visit")}
+                    className="w-full py-3.5 rounded-xl border-2 border-primary text-primary font-semibold text-sm hover:bg-primary/5 transition-colors"
+                  >
                     Schedule Visit
                   </button>
                 </div>
@@ -213,6 +222,16 @@ const PropertyDetail = () => {
 
       <Footer />
       <div className="h-16 md:hidden" />
+
+      {hostel && (
+        <BookingDialog
+          isOpen={bookingMode !== null}
+          onClose={() => setBookingMode(null)}
+          hostelName={hostel.name}
+          priceMin={hostel.priceMin}
+          mode={bookingMode || "book"}
+        />
+      )}
     </div>
   );
 };
