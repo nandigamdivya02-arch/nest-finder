@@ -1,6 +1,8 @@
-import { motion } from "framer-motion";
+import { useState, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Star, MapPin, Users, Zap, Heart } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useToast } from "@/hooks/use-toast";
 import type { Hostel } from "@/data/hostels";
 
 interface HostelCardProps {
@@ -9,6 +11,28 @@ interface HostelCardProps {
 }
 
 const HostelCard = ({ hostel, index }: HostelCardProps) => {
+  const { toast } = useToast();
+  const [wishlisted, setWishlisted] = useState(() => {
+    const saved = JSON.parse(localStorage.getItem("wishlist") || "[]");
+    return saved.includes(hostel.id);
+  });
+
+  const toggleWishlist = useCallback((e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const saved: string[] = JSON.parse(localStorage.getItem("wishlist") || "[]");
+    let updated: string[];
+    if (wishlisted) {
+      updated = saved.filter((id) => id !== hostel.id);
+      toast({ title: "Removed from wishlist" });
+    } else {
+      updated = [...saved, hostel.id];
+      toast({ title: "Added to wishlist ❤️" });
+    }
+    localStorage.setItem("wishlist", JSON.stringify(updated));
+    setWishlisted(!wishlisted);
+  }, [wishlisted, hostel.id, toast]);
+
   const typeColors = {
     boys: "bg-blue-100 text-blue-700",
     girls: "bg-pink-100 text-pink-700",
@@ -61,8 +85,13 @@ const HostelCard = ({ hostel, index }: HostelCardProps) => {
               </span>
             </div>
 
-            <button className="absolute top-3 right-3 w-8 h-8 rounded-full glass flex items-center justify-center hover:bg-destructive/10 transition-colors">
-              <Heart className="w-4 h-4 text-muted-foreground" />
+            <button
+              onClick={toggleWishlist}
+              className={`absolute top-3 right-3 w-8 h-8 rounded-full glass flex items-center justify-center transition-colors ${
+                wishlisted ? "bg-red-500/20" : "hover:bg-destructive/10"
+              }`}
+            >
+              <Heart className={`w-4 h-4 transition-colors ${wishlisted ? "fill-red-500 text-red-500" : "text-muted-foreground"}`} />
             </button>
 
             {hostel.featured && (
