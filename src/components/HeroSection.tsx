@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { Search, MapPin, IndianRupee, Home as HomeIcon, Building2, Castle, TreePine } from "lucide-react";
+import { Search, MapPin, IndianRupee, Home as HomeIcon, Building2, Castle, TreePine, Mic, MicOff } from "lucide-react";
 import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-hostel.jpg";
+import { useSpeechRecognition } from "@/hooks/use-speech-recognition";
 
 const buildingTypes = [
   { Icon: HomeIcon, x: "8%", y: "18%", size: 44, delay: 0, dur: 8 },
@@ -16,6 +18,11 @@ const buildingTypes = [
 ];
 
 const HeroSection = () => {
+  const [searchQuery, setSearchQuery] = useState("");
+  const { isListening, isSupported, toggle } = useSpeechRecognition({
+    onResult: (transcript) => setSearchQuery(transcript),
+  });
+
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background Image with Overlay */}
@@ -193,8 +200,19 @@ const HeroSection = () => {
                 <input
                   type="text"
                   placeholder="Search in Hyderabad..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
                   className="w-full bg-transparent text-sm outline-none placeholder:text-muted-foreground text-foreground"
                 />
+                {isSupported && (
+                  <button onClick={toggle} className="shrink-0" aria-label="Voice search">
+                    {isListening ? (
+                      <Mic className="w-4 h-4 text-destructive animate-pulse" />
+                    ) : (
+                      <Mic className="w-4 h-4 text-muted-foreground hover:text-foreground transition-colors" />
+                    )}
+                  </button>
+                )}
               </div>
               <div className="flex items-center gap-2 px-4 py-3 rounded-xl bg-background/50 sm:w-36">
                 <IndianRupee className="w-4 h-4 text-muted-foreground shrink-0" />
