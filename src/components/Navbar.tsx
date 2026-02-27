@@ -61,10 +61,16 @@ const Navbar = () => {
             <div className="hidden md:flex items-center gap-3">
               <ThemeToggle />
               <Link
-                to="/listings"
+                to="/login"
+                className="px-4 py-2 text-sm font-medium rounded-xl border border-input bg-background hover:bg-accent hover:text-accent-foreground transition-colors"
+              >
+                Log In
+              </Link>
+              <Link
+                to="/signup"
                 className="px-5 py-2.5 text-sm font-semibold rounded-xl bg-primary text-primary-foreground hover:opacity-90 transition-opacity shadow-glow"
               >
-                Find Your Room
+                Sign Up
               </Link>
             </div>
 
