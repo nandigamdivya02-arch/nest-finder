@@ -1,6 +1,7 @@
 import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
-import { Search, SlidersHorizontal, X } from "lucide-react";
+import { Search, SlidersHorizontal, X, Mic, MicOff } from "lucide-react";
+import { useSpeechRecognition } from "@/hooks/use-speech-recognition";
 import Navbar from "@/components/Navbar";
 import HostelCard from "@/components/HostelCard";
 import Footer from "@/components/Footer";
@@ -12,6 +13,9 @@ const Listings = () => {
   const [acFilter, setAcFilter] = useState<string>("all");
   const [sortBy, setSortBy] = useState<string>("rating");
   const [showFilters, setShowFilters] = useState(false);
+  const { isListening, isSupported, toggle } = useSpeechRecognition({
+    onResult: (transcript) => setSearch(transcript),
+  });
 
   const filtered = useMemo(() => {
     let result = [...hostels];
@@ -74,6 +78,15 @@ const Listings = () => {
               {search && (
                 <button onClick={() => setSearch("")}>
                   <X className="w-4 h-4 text-muted-foreground" />
+                </button>
+              )}
+              {isSupported && (
+                <button onClick={toggle} className="shrink-0" aria-label="Voice search">
+                  {isListening ? (
+                    <Mic className="w-4 h-4 text-destructive animate-pulse" />
+                  ) : (
+                    <Mic className="w-4 h-4 text-muted-foreground hover:text-foreground transition-colors" />
+                  )}
                 </button>
               )}
             </div>
