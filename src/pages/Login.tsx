@@ -247,7 +247,7 @@ const Login = () => {
               </div>
 
               <Button type="submit" className="w-full h-12 text-base font-semibold shadow-glow">
-                Sign In
+                Log In
               </Button>
             </form>
           </Tabs>
