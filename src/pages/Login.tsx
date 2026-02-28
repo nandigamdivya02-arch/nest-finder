@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Mail, Phone, Eye, EyeOff, Home, Shield } from "lucide-react";
 import { Input } from "@/components/ui/input";
@@ -8,6 +8,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
+import { lovable } from "@/integrations/lovable";
 import loginHero from "@/assets/login-hero.jpg";
 
 const Login = () => {
@@ -87,12 +88,16 @@ const Login = () => {
             <Button
               variant="outline"
               className="h-12 gap-2 font-medium"
-              onClick={() =>
-                toast({
-                  title: "Google Sign-In",
-                  description: "Enable Lovable Cloud to activate OAuth.",
-                })
-              }
+              onClick={async () => {
+                const result = await lovable.auth.signInWithOAuth("google");
+                if (result.error) {
+                  toast({
+                    title: "Google Sign-In failed",
+                    description: String(result.error),
+                    variant: "destructive",
+                  });
+                }
+              }}
             >
               <svg className="w-5 h-5" viewBox="0 0 24 24">
                 <path
