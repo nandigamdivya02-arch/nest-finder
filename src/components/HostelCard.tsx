@@ -33,10 +33,13 @@ const HostelCard = ({ hostel, index }: HostelCardProps) => {
     setWishlisted(!wishlisted);
   }, [wishlisted, hostel.id, toast]);
 
-  const typeColors = {
+  const typeColors: Record<string, string> = {
     boys: "bg-blue-100 text-blue-700",
     girls: "bg-pink-100 text-pink-700",
     "co-ed": "bg-purple-100 text-purple-700",
+    house: "bg-amber-100 text-amber-700",
+    apartment: "bg-cyan-100 text-cyan-700",
+    playground: "bg-green-100 text-green-700",
   };
 
   const availabilityColors = {
@@ -77,8 +80,8 @@ const HostelCard = ({ hostel, index }: HostelCardProps) => {
             
             {/* Badges */}
             <div className="absolute top-3 left-3 flex gap-2">
-              <span className={`px-2.5 py-1 rounded-lg text-xs font-semibold ${typeColors[hostel.type]}`}>
-                {hostel.type === "boys" ? "Boys" : hostel.type === "girls" ? "Girls" : "Co-ed"}
+              <span className={`px-2.5 py-1 rounded-lg text-xs font-semibold ${typeColors[hostel.type] || "bg-secondary text-secondary-foreground"}`}>
+                {hostel.type === "boys" ? "Boys" : hostel.type === "girls" ? "Girls" : hostel.type === "co-ed" ? "Co-ed" : hostel.type === "house" ? "House" : hostel.type === "apartment" ? "Apartment" : "Playground"}
               </span>
               <span className={`px-2.5 py-1 rounded-lg text-xs font-semibold ${availabilityColors[hostel.availability]}`}>
                 {hostel.availability}
@@ -140,7 +143,7 @@ const HostelCard = ({ hostel, index }: HostelCardProps) => {
             <div className="flex items-center justify-between pt-4 border-t border-border">
               <div>
                 <span className="text-lg font-display font-bold text-primary">₹{hostel.priceMin.toLocaleString()}</span>
-                <span className="text-sm text-muted-foreground"> - ₹{hostel.priceMax.toLocaleString()}/mo</span>
+                <span className="text-sm text-muted-foreground"> - ₹{hostel.priceMax.toLocaleString()}{hostel.type === "playground" ? "/session" : "/mo"}</span>
               </div>
               {hostel.ac && (
                 <span className="flex items-center gap-1 text-xs text-primary font-medium">

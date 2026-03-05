@@ -54,7 +54,7 @@ const Listings = () => {
             className="mb-8"
           >
             <h1 className="text-3xl md:text-4xl font-display font-bold mb-2">
-              Hostels in <span className="gradient-text">Gandimaisamma</span>
+              Properties in <span className="gradient-text">Hyderabad</span>
             </h1>
             <p className="text-muted-foreground">{filtered.length} properties found</p>
           </motion.div>
@@ -119,6 +119,9 @@ const Listings = () => {
                   <option value="boys">Boys</option>
                   <option value="girls">Girls</option>
                   <option value="co-ed">Co-ed</option>
+                  <option value="house">House</option>
+                  <option value="apartment">Apartment</option>
+                  <option value="playground">Playground</option>
                 </select>
               </div>
               <div>
