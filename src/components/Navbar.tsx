@@ -128,8 +128,8 @@ const Navbar = () => {
           {[
             { to: "/", label: "Home", icon: Home },
             { to: "/listings", label: "Search", icon: Search },
+            { to: "/playgrounds", label: "Play", icon: Trophy },
             { to: "/wishlist", label: "Wishlist", icon: Heart },
-            { to: "/", label: "Profile", icon: User },
           ].map((item) => (
             <Link
               key={item.label}
