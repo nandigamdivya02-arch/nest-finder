@@ -11,6 +11,7 @@ const Navbar = () => {
   const links = [
     { to: "/", label: "Home", icon: Home },
     { to: "/listings", label: "Properties", icon: Search },
+    { to: "/playgrounds", label: "Playgrounds", icon: Trophy },
     { to: "/wishlist", label: "Wishlist", icon: Heart },
     { to: "/#help-contact", label: "Help & Contact", icon: MessageCircle },
   ];
