@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Home, Search, CalendarDays, User, MessageCircle, Heart } from "lucide-react";
+import { Menu, X, Home, Search, CalendarDays, User, MessageCircle, Heart, Trophy } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import ThemeToggle from "./ThemeToggle";
 
