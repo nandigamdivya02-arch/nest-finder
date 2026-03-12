@@ -10,6 +10,9 @@ import Wishlist from "./pages/Wishlist";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
+import Playgrounds from "./pages/Playgrounds";
+import PlaygroundDetail from "./pages/PlaygroundDetail";
+import MyPlaygroundBookings from "./pages/MyPlaygroundBookings";
 import NotFound from "./pages/NotFound";
 import HomiiiAI from "./components/HomiiiAI";
 
