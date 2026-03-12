@@ -32,6 +32,9 @@ const App = () => (
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/playgrounds" element={<Playgrounds />} />
+          <Route path="/playgrounds/:id" element={<PlaygroundDetail />} />
+          <Route path="/playgrounds/my-bookings" element={<MyPlaygroundBookings />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <HomiiiAI />
