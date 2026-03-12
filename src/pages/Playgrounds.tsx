@@ -45,7 +45,7 @@ export default function Playgrounds() {
 
       {/* Hero Banner */}
       <section className="pt-24 pb-8 lg:pt-32 lg:pb-12 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/90 via-emerald-800/80 to-teal-dark/90" />
+        <div className="absolute inset-0 bg-gradient-to-br from-teal-dark via-primary/80 to-teal-dark/90" />
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-10 left-10 w-40 h-40 rounded-full border-2 border-primary-foreground/30 animate-pulse" />
           <div className="absolute bottom-10 right-20 w-24 h-24 rounded-full border-2 border-primary-foreground/20 animate-pulse" style={{ animationDelay: "1s" }} />
