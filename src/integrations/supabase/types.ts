@@ -14,6 +14,160 @@ export type Database = {
   }
   public: {
     Tables: {
+      playground_bookings: {
+        Row: {
+          booking_date: string
+          created_at: string
+          end_time: string
+          id: string
+          payment_method: string | null
+          playground_id: string
+          start_time: string
+          status: string
+          total_hours: number
+          total_price: number
+          user_id: string
+        }
+        Insert: {
+          booking_date: string
+          created_at?: string
+          end_time: string
+          id?: string
+          payment_method?: string | null
+          playground_id: string
+          start_time: string
+          status?: string
+          total_hours?: number
+          total_price: number
+          user_id: string
+        }
+        Update: {
+          booking_date?: string
+          created_at?: string
+          end_time?: string
+          id?: string
+          payment_method?: string | null
+          playground_id?: string
+          start_time?: string
+          status?: string
+          total_hours?: number
+          total_price?: number
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "playground_bookings_playground_id_fkey"
+            columns: ["playground_id"]
+            isOneToOne: false
+            referencedRelation: "playgrounds"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      playground_reviews: {
+        Row: {
+          comment: string
+          created_at: string
+          id: string
+          playground_id: string
+          rating: number
+          user_id: string
+        }
+        Insert: {
+          comment?: string
+          created_at?: string
+          id?: string
+          playground_id: string
+          rating: number
+          user_id: string
+        }
+        Update: {
+          comment?: string
+          created_at?: string
+          id?: string
+          playground_id?: string
+          rating?: number
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "playground_reviews_playground_id_fkey"
+            columns: ["playground_id"]
+            isOneToOne: false
+            referencedRelation: "playgrounds"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      playgrounds: {
+        Row: {
+          address: string
+          city: string
+          closing_time: string
+          created_at: string
+          description: string
+          facilities: string[]
+          id: string
+          images: string[]
+          is_active: boolean
+          is_featured: boolean
+          lat: number | null
+          lng: number | null
+          name: string
+          opening_time: string
+          owner_id: string | null
+          price_per_hour: number
+          rating: number
+          review_count: number
+          sport_types: string[]
+          updated_at: string
+        }
+        Insert: {
+          address?: string
+          city?: string
+          closing_time?: string
+          created_at?: string
+          description?: string
+          facilities?: string[]
+          id?: string
+          images?: string[]
+          is_active?: boolean
+          is_featured?: boolean
+          lat?: number | null
+          lng?: number | null
+          name: string
+          opening_time?: string
+          owner_id?: string | null
+          price_per_hour?: number
+          rating?: number
+          review_count?: number
+          sport_types?: string[]
+          updated_at?: string
+        }
+        Update: {
+          address?: string
+          city?: string
+          closing_time?: string
+          created_at?: string
+          description?: string
+          facilities?: string[]
+          id?: string
+          images?: string[]
+          is_active?: boolean
+          is_featured?: boolean
+          lat?: number | null
+          lng?: number | null
+          name?: string
+          opening_time?: string
+          owner_id?: string | null
+          price_per_hour?: number
+          rating?: number
+          review_count?: number
+          sport_types?: string[]
+          updated_at?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           created_at: string

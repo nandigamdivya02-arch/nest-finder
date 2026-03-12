@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Home, Search, CalendarDays, User, MessageCircle, Heart } from "lucide-react";
+import { Menu, X, Home, Search, CalendarDays, User, MessageCircle, Heart, Trophy } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import ThemeToggle from "./ThemeToggle";
 
@@ -11,6 +11,7 @@ const Navbar = () => {
   const links = [
     { to: "/", label: "Home", icon: Home },
     { to: "/listings", label: "Properties", icon: Search },
+    { to: "/playgrounds", label: "Playgrounds", icon: Trophy },
     { to: "/wishlist", label: "Wishlist", icon: Heart },
     { to: "/#help-contact", label: "Help & Contact", icon: MessageCircle },
   ];
@@ -127,8 +128,8 @@ const Navbar = () => {
           {[
             { to: "/", label: "Home", icon: Home },
             { to: "/listings", label: "Search", icon: Search },
+            { to: "/playgrounds", label: "Play", icon: Trophy },
             { to: "/wishlist", label: "Wishlist", icon: Heart },
-            { to: "/", label: "Profile", icon: User },
           ].map((item) => (
             <Link
               key={item.label}
