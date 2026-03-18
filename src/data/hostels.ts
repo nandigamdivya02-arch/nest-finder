@@ -59,7 +59,7 @@ export const hostels: Hostel[] = [
     amenities: ["WiFi", "Hot Water", "TV", "Washing Machine", "Parking", "Security"],
     rating: 4.2,
     reviews: 87,
-    images: ["https://images.unsplash.com/photo-1596276020587-8044fe049813?w=600&h=400&fit=crop"],
+    images: [boysHostel1],
     description: "Well-maintained boys hostel located at Gandimaisamma X Road with spacious rooms, attached bathrooms, and home-cooked meals. Close to major IT companies and transport hubs.",
     ownerName: "Ramesh Kumar",
     ownerPhone: "+91 98765 43210",
