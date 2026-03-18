@@ -371,7 +371,7 @@ export const hostels: Hostel[] = [
     amenities: ["Parking", "Floodlights", "Changing Rooms", "Drinking Water", "First Aid"],
     rating: 4.4,
     reviews: 89,
-    images: ["https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=600&h=400&fit=crop"],
+    images: [cricketGround],
     description: "Professional cricket ground with well-maintained turf pitch, practice nets, and floodlights for night matches. Available for hourly and full-day bookings.",
     ownerName: "Ravi Teja",
     ownerPhone: "+91 99887 76655",
