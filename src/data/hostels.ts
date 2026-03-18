@@ -241,7 +241,7 @@ export const hostels: Hostel[] = [
     amenities: ["WiFi", "Hot Water", "AC", "TV", "Washing Machine", "Safety Lockers", "CCTV", "Food", "Power Backup"],
     rating: 4.4,
     reviews: 112,
-    images: ["https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=600&h=400&fit=crop"],
+    images: [girlsPg1],
     description: "Safe and secure girls PG with modern amenities, CCTV coverage, and biometric entry. Rooms with attached balconies and study tables. Located in a quiet colony.",
     ownerName: "Padmavathi",
     ownerPhone: "+91 21098 76543",
