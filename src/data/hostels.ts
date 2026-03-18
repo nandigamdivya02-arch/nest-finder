@@ -267,7 +267,7 @@ export const hostels: Hostel[] = [
     amenities: ["Parking", "Power Backup", "Security", "Hot Water"],
     rating: 4.3,
     reviews: 34,
-    images: ["https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=600&h=400&fit=crop"],
+    images: [house1],
     description: "Spacious 2BHK independent house in Kukatpally with car parking, 24/7 water supply, and close proximity to metro station and malls.",
     ownerName: "Rajesh Sharma",
     ownerPhone: "+91 91234 56789",
