@@ -1,6 +1,7 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { MapPin, Home as HomeIcon, Building2, Castle, TreePine } from "lucide-react";
-import { Link } from "react-router-dom";
+import { MapPin, Home as HomeIcon, Building2, Castle, TreePine, Search } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
 
 const buildingTypes = [
   { Icon: HomeIcon, x: "8%", y: "18%", size: 44, delay: 0, dur: 8 },
@@ -15,6 +16,16 @@ const buildingTypes = [
 ];
 
 const HeroSection = () => {
+  const [search, setSearch] = useState("");
+  const navigate = useNavigate();
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (search.trim()) {
+      navigate(`/listings?q=${encodeURIComponent(search.trim())}`);
+    }
+  };
+
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Animated Gradient Background */}
@@ -163,17 +174,48 @@ const HeroSection = () => {
             Affordable, safe, and comfortable living for students & professionals.
           </motion.p>
 
-          {/* CTA Button */}
-          <motion.div
+          {/* Search Bar */}
+          <motion.form
+            onSubmit={handleSearch}
             initial={{ opacity: 0, y: 40, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.35, type: "spring", stiffness: 80 }}
+            className="flex items-center gap-2 w-full max-w-lg bg-card/80 backdrop-blur-md border border-border rounded-2xl px-4 py-3 shadow-lg focus-within:ring-2 focus-within:ring-primary/30 transition-shadow"
+          >
+            <Search className="w-5 h-5 text-muted-foreground shrink-0" />
+            <input
+              type="text"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder="Search hostels, PGs, playgrounds..."
+              className="flex-1 bg-transparent text-sm text-foreground outline-none placeholder:text-muted-foreground"
+            />
+            <button
+              type="submit"
+              className="px-5 py-2 rounded-xl bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 transition-opacity"
+            >
+              Search
+            </button>
+          </motion.form>
+
+          {/* CTA Links */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.45 }}
+            className="flex gap-3 mt-4"
           >
             <Link
               to="/listings"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-primary text-primary-foreground font-semibold text-lg hover:opacity-90 transition-opacity shadow-glow"
+              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-secondary text-secondary-foreground font-medium text-sm hover:opacity-90 transition-opacity border border-border"
             >
-              Explore Properties
+              <HomeIcon className="w-4 h-4" /> Properties
+            </Link>
+            <Link
+              to="/playgrounds"
+              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-secondary text-secondary-foreground font-medium text-sm hover:opacity-90 transition-opacity border border-border"
+            >
+              <TreePine className="w-4 h-4" /> Playgrounds
             </Link>
           </motion.div>
 
