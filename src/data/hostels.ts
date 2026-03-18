@@ -1,5 +1,20 @@
 import { Wifi, Droplets, Car, Shield, Zap, UtensilsCrossed, Shirt, Tv, Bath, Lock } from "lucide-react";
 
+import boysHostel1 from "@/assets/properties/boys-hostel-1.jpg";
+import boysHostel2 from "@/assets/properties/boys-hostel-2.jpg";
+import boysHostel3 from "@/assets/properties/boys-hostel-3.jpg";
+import girlsPg1 from "@/assets/properties/girls-pg-1.jpg";
+import girlsPg2 from "@/assets/properties/girls-pg-2.jpg";
+import girlsPg3 from "@/assets/properties/girls-pg-3.jpg";
+import luxuryPg from "@/assets/properties/luxury-pg.jpg";
+import house1 from "@/assets/properties/house-1.jpg";
+import house2 from "@/assets/properties/house-2.jpg";
+import apartment1 from "@/assets/properties/apartment-1.jpg";
+import apartment2 from "@/assets/properties/apartment-2.jpg";
+import cricketGround from "@/assets/properties/cricket-ground.jpg";
+import kidsPlay from "@/assets/properties/kids-play.jpg";
+import sportsComplex from "@/assets/properties/sports-complex.jpg";
+import partyLawn from "@/assets/properties/party-lawn.jpg";
 export interface Hostel {
   id: string;
   name: string;
