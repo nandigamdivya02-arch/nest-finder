@@ -189,7 +189,7 @@ export const hostels: Hostel[] = [
     amenities: ["WiFi", "Hot Water", "AC", "TV", "Gym", "Parking", "Security", "CCTV", "Power Backup", "Laundry", "Food"],
     rating: 4.7,
     reviews: 198,
-    images: ["https://images.unsplash.com/photo-1630699144867-37acec97df5a?w=600&h=400&fit=crop"],
+    images: [luxuryPg],
     description: "Premium co-ed luxury PG with AC rooms, gym facility, 24/7 CCTV surveillance, and gourmet meals. Modern interiors with attached bathrooms and workstation desks.",
     ownerName: "Suresh Babu",
     ownerPhone: "+91 43210 98765",
