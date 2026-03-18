@@ -23,7 +23,14 @@ const Listings = () => {
     if (search) {
       const q = search.toLowerCase();
       result = result.filter(
-        (h) => h.name.toLowerCase().includes(q) || h.area.toLowerCase().includes(q)
+        (h) =>
+          h.name.toLowerCase().includes(q) ||
+          h.area.toLowerCase().includes(q) ||
+          h.address.toLowerCase().includes(q) ||
+          h.city.toLowerCase().includes(q) ||
+          h.pincode.includes(q) ||
+          h.description.toLowerCase().includes(q) ||
+          h.type.toLowerCase().includes(q)
       );
     }
 
