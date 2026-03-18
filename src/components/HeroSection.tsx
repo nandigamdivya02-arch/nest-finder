@@ -1,6 +1,7 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { MapPin, Home as HomeIcon, Building2, Castle, TreePine } from "lucide-react";
-import { Link } from "react-router-dom";
+import { MapPin, Home as HomeIcon, Building2, Castle, TreePine, Search } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
 
 const buildingTypes = [
   { Icon: HomeIcon, x: "8%", y: "18%", size: 44, delay: 0, dur: 8 },
