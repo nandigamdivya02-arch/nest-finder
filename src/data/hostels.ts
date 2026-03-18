@@ -1,5 +1,20 @@
 import { Wifi, Droplets, Car, Shield, Zap, UtensilsCrossed, Shirt, Tv, Bath, Lock } from "lucide-react";
 
+import boysHostel1 from "@/assets/properties/boys-hostel-1.jpg";
+import boysHostel2 from "@/assets/properties/boys-hostel-2.jpg";
+import boysHostel3 from "@/assets/properties/boys-hostel-3.jpg";
+import girlsPg1 from "@/assets/properties/girls-pg-1.jpg";
+import girlsPg2 from "@/assets/properties/girls-pg-2.jpg";
+import girlsPg3 from "@/assets/properties/girls-pg-3.jpg";
+import luxuryPg from "@/assets/properties/luxury-pg.jpg";
+import house1 from "@/assets/properties/house-1.jpg";
+import house2 from "@/assets/properties/house-2.jpg";
+import apartment1 from "@/assets/properties/apartment-1.jpg";
+import apartment2 from "@/assets/properties/apartment-2.jpg";
+import cricketGround from "@/assets/properties/cricket-ground.jpg";
+import kidsPlay from "@/assets/properties/kids-play.jpg";
+import sportsComplex from "@/assets/properties/sports-complex.jpg";
+import partyLawn from "@/assets/properties/party-lawn.jpg";
 export interface Hostel {
   id: string;
   name: string;
@@ -44,7 +59,7 @@ export const hostels: Hostel[] = [
     amenities: ["WiFi", "Hot Water", "TV", "Washing Machine", "Parking", "Security"],
     rating: 4.2,
     reviews: 87,
-    images: ["https://images.unsplash.com/photo-1596276020587-8044fe049813?w=600&h=400&fit=crop"],
+    images: [boysHostel1],
     description: "Well-maintained boys hostel located at Gandimaisamma X Road with spacious rooms, attached bathrooms, and home-cooked meals. Close to major IT companies and transport hubs.",
     ownerName: "Ramesh Kumar",
     ownerPhone: "+91 98765 43210",
@@ -70,7 +85,7 @@ export const hostels: Hostel[] = [
     amenities: ["Hot Water", "TV", "Wardrobe", "Washing Machine", "Safety Lockers", "Food", "Cots", "Mattress"],
     rating: 4.5,
     reviews: 124,
-    images: ["https://images.unsplash.com/photo-1631049552057-403cdb8f0658?w=600&h=400&fit=crop"],
+    images: [girlsPg1],
     description: "Premium girls hostel with attached western-style washrooms, hot water facility, safety lockers, and nutritious meals. New building with feel-good ambience in a safe residential area.",
     ownerName: "Lakshmi Devi",
     ownerPhone: "+91 87654 32109",
@@ -96,7 +111,7 @@ export const hostels: Hostel[] = [
     amenities: ["WiFi", "Hot Water", "Parking", "Security", "Power Backup", "Laundry"],
     rating: 4.0,
     reviews: 65,
-    images: ["https://images.unsplash.com/photo-1595846519845-68e298c2edd8?w=600&h=400&fit=crop"],
+    images: [boysHostel2],
     description: "Affordable and comfortable mens hostel with good connectivity to IT parks and educational institutions. 24/7 security, power backup, and home-style food available.",
     ownerName: "Venkat Rao",
     ownerPhone: "+91 76543 21098",
@@ -122,7 +137,7 @@ export const hostels: Hostel[] = [
     amenities: ["WiFi", "Hot Water", "TV", "Wardrobe", "Washing Machine", "Safety Lockers", "Food", "Power Backup", "CCTV"],
     rating: 4.6,
     reviews: 156,
-    images: ["https://images.unsplash.com/photo-1631049421450-348ccd7f8949?w=600&h=400&fit=crop"],
+    images: [girlsPg2],
     description: "New building with feel-good ambience, attached washroom with hot water. Premium PG for women with AC rooms, CCTV surveillance, and delicious home-cooked meals. Safe and secure environment.",
     ownerName: "Sravanthi",
     ownerPhone: "+91 65432 10987",
@@ -148,7 +163,7 @@ export const hostels: Hostel[] = [
     amenities: ["Hot Water", "Parking", "Security", "Power Backup", "Food"],
     rating: 3.9,
     reviews: 42,
-    images: ["https://images.unsplash.com/photo-1540518614846-7eded433c457?w=600&h=400&fit=crop"],
+    images: [boysHostel3],
     description: "Budget-friendly boys hostel near Maisamma Temple with basic amenities, power backup, and hygienic food. Ideal for students and working professionals.",
     ownerName: "Narasimha Reddy",
     ownerPhone: "+91 54321 09876",
@@ -174,7 +189,7 @@ export const hostels: Hostel[] = [
     amenities: ["WiFi", "Hot Water", "AC", "TV", "Gym", "Parking", "Security", "CCTV", "Power Backup", "Laundry", "Food"],
     rating: 4.7,
     reviews: 198,
-    images: ["https://images.unsplash.com/photo-1630699144867-37acec97df5a?w=600&h=400&fit=crop"],
+    images: [luxuryPg],
     description: "Premium co-ed luxury PG with AC rooms, gym facility, 24/7 CCTV surveillance, and gourmet meals. Modern interiors with attached bathrooms and workstation desks.",
     ownerName: "Suresh Babu",
     ownerPhone: "+91 43210 98765",
@@ -200,7 +215,7 @@ export const hostels: Hostel[] = [
     amenities: ["WiFi", "Hot Water", "Parking", "Security", "Food", "Power Backup"],
     rating: 4.1,
     reviews: 73,
-    images: ["https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=600&h=400&fit=crop"],
+    images: [girlsPg3],
     description: "Peaceful boys hostel in a green residential area with spacious rooms and garden sitting area. Homely atmosphere with nutritious meals and friendly management.",
     ownerName: "Krishna Murthy",
     ownerPhone: "+91 32109 87654",
@@ -226,7 +241,7 @@ export const hostels: Hostel[] = [
     amenities: ["WiFi", "Hot Water", "AC", "TV", "Washing Machine", "Safety Lockers", "CCTV", "Food", "Power Backup"],
     rating: 4.4,
     reviews: 112,
-    images: ["https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=600&h=400&fit=crop"],
+    images: [girlsPg1],
     description: "Safe and secure girls PG with modern amenities, CCTV coverage, and biometric entry. Rooms with attached balconies and study tables. Located in a quiet colony.",
     ownerName: "Padmavathi",
     ownerPhone: "+91 21098 76543",
@@ -252,7 +267,7 @@ export const hostels: Hostel[] = [
     amenities: ["Parking", "Power Backup", "Security", "Hot Water"],
     rating: 4.3,
     reviews: 34,
-    images: ["https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=600&h=400&fit=crop"],
+    images: [house1],
     description: "Spacious 2BHK independent house in Kukatpally with car parking, 24/7 water supply, and close proximity to metro station and malls.",
     ownerName: "Rajesh Sharma",
     ownerPhone: "+91 91234 56789",
@@ -278,7 +293,7 @@ export const hostels: Hostel[] = [
     amenities: ["Parking", "Power Backup", "Security", "Hot Water", "CCTV"],
     rating: 4.5,
     reviews: 28,
-    images: ["https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&h=400&fit=crop"],
+    images: [house2],
     description: "Beautiful 3BHK family home near Miyapur Metro with garden, covered parking, and modern fittings. Ideal for families.",
     ownerName: "Anitha Reddy",
     ownerPhone: "+91 81234 56789",
@@ -304,7 +319,7 @@ export const hostels: Hostel[] = [
     amenities: ["WiFi", "Gym", "Parking", "Security", "CCTV", "Power Backup", "AC"],
     rating: 4.8,
     reviews: 65,
-    images: ["https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=600&h=400&fit=crop"],
+    images: [apartment1],
     description: "Premium gated community apartment in Madhapur IT hub with swimming pool, gym, clubhouse, and 24/7 security. Walking distance to major tech offices.",
     ownerName: "Vikram Patel",
     ownerPhone: "+91 71234 56789",
@@ -330,7 +345,7 @@ export const hostels: Hostel[] = [
     amenities: ["Hot Water", "Parking", "Power Backup"],
     rating: 4.0,
     reviews: 19,
-    images: ["https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=600&h=400&fit=crop"],
+    images: [apartment2],
     description: "Affordable 1BHK apartment in Kondapur, perfect for bachelors or couples. Close to IT corridor and shopping areas.",
     ownerName: "Sunil Kumar",
     ownerPhone: "+91 61234 56789",
@@ -356,7 +371,7 @@ export const hostels: Hostel[] = [
     amenities: ["Parking", "Floodlights", "Changing Rooms", "Drinking Water", "First Aid"],
     rating: 4.4,
     reviews: 89,
-    images: ["https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=600&h=400&fit=crop"],
+    images: [cricketGround],
     description: "Professional cricket ground with well-maintained turf pitch, practice nets, and floodlights for night matches. Available for hourly and full-day bookings.",
     ownerName: "Ravi Teja",
     ownerPhone: "+91 99887 76655",
@@ -382,7 +397,7 @@ export const hostels: Hostel[] = [
     amenities: ["AC", "CCTV", "Security", "First Aid", "Cafeteria", "Parking"],
     rating: 4.6,
     reviews: 215,
-    images: ["https://images.unsplash.com/photo-1566454825481-9c31bd88e5a1?w=600&h=400&fit=crop"],
+    images: [kidsPlay],
     description: "Safe and fun indoor play area for kids aged 2-12 with trampolines, ball pits, and themed play zones. Birthday party packages available.",
     ownerName: "Priya Sharma",
     ownerPhone: "+91 88776 65544",
@@ -408,7 +423,7 @@ export const hostels: Hostel[] = [
     amenities: ["Parking", "Floodlights", "Changing Rooms", "Drinking Water", "Cafeteria", "First Aid", "Security"],
     rating: 4.7,
     reviews: 156,
-    images: ["https://images.unsplash.com/photo-1529900748604-07564a03e7a6?w=600&h=400&fit=crop"],
+    images: [sportsComplex],
     description: "Multi-sport complex with football, basketball, badminton, and volleyball courts. Ideal for corporate events, tournaments, and weekend games. Floodlit for evening play.",
     ownerName: "Arjun Reddy",
     ownerPhone: "+91 77665 54433",
@@ -434,7 +449,7 @@ export const hostels: Hostel[] = [
     amenities: ["Parking", "Floodlights", "Security", "Power Backup", "Catering Space", "Restrooms"],
     rating: 4.3,
     reviews: 72,
-    images: ["https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=600&h=400&fit=crop"],
+    images: [partyLawn],
     description: "Spacious party lawn perfect for events, birthday parties, and gatherings. Includes a covered stage, kids play area, and ample parking. Catering arrangements available on request.",
     ownerName: "Meena Kumari",
     ownerPhone: "+91 66554 43322",
