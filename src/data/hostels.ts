@@ -319,7 +319,7 @@ export const hostels: Hostel[] = [
     amenities: ["WiFi", "Gym", "Parking", "Security", "CCTV", "Power Backup", "AC"],
     rating: 4.8,
     reviews: 65,
-    images: ["https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=600&h=400&fit=crop"],
+    images: [apartment1],
     description: "Premium gated community apartment in Madhapur IT hub with swimming pool, gym, clubhouse, and 24/7 security. Walking distance to major tech offices.",
     ownerName: "Vikram Patel",
     ownerPhone: "+91 71234 56789",
