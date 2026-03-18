@@ -137,7 +137,7 @@ export const hostels: Hostel[] = [
     amenities: ["WiFi", "Hot Water", "TV", "Wardrobe", "Washing Machine", "Safety Lockers", "Food", "Power Backup", "CCTV"],
     rating: 4.6,
     reviews: 156,
-    images: ["https://images.unsplash.com/photo-1631049421450-348ccd7f8949?w=600&h=400&fit=crop"],
+    images: [girlsPg2],
     description: "New building with feel-good ambience, attached washroom with hot water. Premium PG for women with AC rooms, CCTV surveillance, and delicious home-cooked meals. Safe and secure environment.",
     ownerName: "Sravanthi",
     ownerPhone: "+91 65432 10987",
