@@ -345,7 +345,7 @@ export const hostels: Hostel[] = [
     amenities: ["Hot Water", "Parking", "Power Backup"],
     rating: 4.0,
     reviews: 19,
-    images: ["https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=600&h=400&fit=crop"],
+    images: [apartment2],
     description: "Affordable 1BHK apartment in Kondapur, perfect for bachelors or couples. Close to IT corridor and shopping areas.",
     ownerName: "Sunil Kumar",
     ownerPhone: "+91 61234 56789",
