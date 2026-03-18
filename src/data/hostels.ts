@@ -423,7 +423,7 @@ export const hostels: Hostel[] = [
     amenities: ["Parking", "Floodlights", "Changing Rooms", "Drinking Water", "Cafeteria", "First Aid", "Security"],
     rating: 4.7,
     reviews: 156,
-    images: ["https://images.unsplash.com/photo-1529900748604-07564a03e7a6?w=600&h=400&fit=crop"],
+    images: [sportsComplex],
     description: "Multi-sport complex with football, basketball, badminton, and volleyball courts. Ideal for corporate events, tournaments, and weekend games. Floodlit for evening play.",
     ownerName: "Arjun Reddy",
     ownerPhone: "+91 77665 54433",
