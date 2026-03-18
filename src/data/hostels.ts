@@ -163,7 +163,7 @@ export const hostels: Hostel[] = [
     amenities: ["Hot Water", "Parking", "Security", "Power Backup", "Food"],
     rating: 3.9,
     reviews: 42,
-    images: ["https://images.unsplash.com/photo-1540518614846-7eded433c457?w=600&h=400&fit=crop"],
+    images: [boysHostel3],
     description: "Budget-friendly boys hostel near Maisamma Temple with basic amenities, power backup, and hygienic food. Ideal for students and working professionals.",
     ownerName: "Narasimha Reddy",
     ownerPhone: "+91 54321 09876",
