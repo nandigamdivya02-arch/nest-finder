@@ -293,7 +293,7 @@ export const hostels: Hostel[] = [
     amenities: ["Parking", "Power Backup", "Security", "Hot Water", "CCTV"],
     rating: 4.5,
     reviews: 28,
-    images: ["https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&h=400&fit=crop"],
+    images: [house2],
     description: "Beautiful 3BHK family home near Miyapur Metro with garden, covered parking, and modern fittings. Ideal for families.",
     ownerName: "Anitha Reddy",
     ownerPhone: "+91 81234 56789",
