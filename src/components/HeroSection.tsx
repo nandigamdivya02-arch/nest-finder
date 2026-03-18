@@ -16,6 +16,16 @@ const buildingTypes = [
 ];
 
 const HeroSection = () => {
+  const [search, setSearch] = useState("");
+  const navigate = useNavigate();
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (search.trim()) {
+      navigate(`/listings?q=${encodeURIComponent(search.trim())}`);
+    }
+  };
+
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Animated Gradient Background */}
