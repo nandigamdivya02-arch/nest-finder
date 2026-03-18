@@ -111,7 +111,7 @@ export const hostels: Hostel[] = [
     amenities: ["WiFi", "Hot Water", "Parking", "Security", "Power Backup", "Laundry"],
     rating: 4.0,
     reviews: 65,
-    images: ["https://images.unsplash.com/photo-1595846519845-68e298c2edd8?w=600&h=400&fit=crop"],
+    images: [boysHostel2],
     description: "Affordable and comfortable mens hostel with good connectivity to IT parks and educational institutions. 24/7 security, power backup, and home-style food available.",
     ownerName: "Venkat Rao",
     ownerPhone: "+91 76543 21098",
