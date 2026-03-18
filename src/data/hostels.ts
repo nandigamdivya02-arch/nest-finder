@@ -215,7 +215,7 @@ export const hostels: Hostel[] = [
     amenities: ["WiFi", "Hot Water", "Parking", "Security", "Food", "Power Backup"],
     rating: 4.1,
     reviews: 73,
-    images: ["https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=600&h=400&fit=crop"],
+    images: [girlsPg3],
     description: "Peaceful boys hostel in a green residential area with spacious rooms and garden sitting area. Homely atmosphere with nutritious meals and friendly management.",
     ownerName: "Krishna Murthy",
     ownerPhone: "+91 32109 87654",
