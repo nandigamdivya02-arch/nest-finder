@@ -85,7 +85,7 @@ export const hostels: Hostel[] = [
     amenities: ["Hot Water", "TV", "Wardrobe", "Washing Machine", "Safety Lockers", "Food", "Cots", "Mattress"],
     rating: 4.5,
     reviews: 124,
-    images: ["https://images.unsplash.com/photo-1631049552057-403cdb8f0658?w=600&h=400&fit=crop"],
+    images: [girlsPg1],
     description: "Premium girls hostel with attached western-style washrooms, hot water facility, safety lockers, and nutritious meals. New building with feel-good ambience in a safe residential area.",
     ownerName: "Lakshmi Devi",
     ownerPhone: "+91 87654 32109",
