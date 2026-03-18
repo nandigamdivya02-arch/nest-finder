@@ -397,7 +397,7 @@ export const hostels: Hostel[] = [
     amenities: ["AC", "CCTV", "Security", "First Aid", "Cafeteria", "Parking"],
     rating: 4.6,
     reviews: 215,
-    images: ["https://images.unsplash.com/photo-1566454825481-9c31bd88e5a1?w=600&h=400&fit=crop"],
+    images: [kidsPlay],
     description: "Safe and fun indoor play area for kids aged 2-12 with trampolines, ball pits, and themed play zones. Birthday party packages available.",
     ownerName: "Priya Sharma",
     ownerPhone: "+91 88776 65544",
