@@ -449,7 +449,7 @@ export const hostels: Hostel[] = [
     amenities: ["Parking", "Floodlights", "Security", "Power Backup", "Catering Space", "Restrooms"],
     rating: 4.3,
     reviews: 72,
-    images: ["https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=600&h=400&fit=crop"],
+    images: [partyLawn],
     description: "Spacious party lawn perfect for events, birthday parties, and gatherings. Includes a covered stage, kids play area, and ample parking. Catering arrangements available on request.",
     ownerName: "Meena Kumari",
     ownerPhone: "+91 66554 43322",
