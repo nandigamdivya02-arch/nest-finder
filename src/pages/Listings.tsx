@@ -1,14 +1,26 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Search, SlidersHorizontal, X, Mic, MicOff } from "lucide-react";
+import { useSearchParams } from "react-router-dom";
 import { useSpeechRecognition } from "@/hooks/use-speech-recognition";
 import Navbar from "@/components/Navbar";
 import HostelCard from "@/components/HostelCard";
 import Footer from "@/components/Footer";
 import { hostels } from "@/data/hostels";
 
+// Normalize text for fuzzy matching: lowercase, remove doubles, trim
+const normalize = (text: string) =>
+  text.toLowerCase().replace(/(.)\1+/g, "$1").replace(/\s+/g, "").trim();
+
+const fuzzyMatch = (source: string, query: string) => {
+  const ns = normalize(source);
+  const nq = normalize(query);
+  return ns.includes(nq) || source.toLowerCase().includes(query.toLowerCase());
+};
+
 const Listings = () => {
-  const [search, setSearch] = useState("");
+  const [searchParams] = useSearchParams();
+  const [search, setSearch] = useState(searchParams.get("q") || "");
   const [typeFilter, setTypeFilter] = useState<string>("all");
   const [acFilter, setAcFilter] = useState<string>("all");
   const [sortBy, setSortBy] = useState<string>("rating");
@@ -17,20 +29,24 @@ const Listings = () => {
     onResult: (transcript) => setSearch(transcript),
   });
 
+  useEffect(() => {
+    const q = searchParams.get("q");
+    if (q) setSearch(q);
+  }, [searchParams]);
+
   const filtered = useMemo(() => {
     let result = [...hostels];
 
     if (search) {
-      const q = search.toLowerCase();
       result = result.filter(
         (h) =>
-          h.name.toLowerCase().includes(q) ||
-          h.area.toLowerCase().includes(q) ||
-          h.address.toLowerCase().includes(q) ||
-          h.city.toLowerCase().includes(q) ||
-          h.pincode.includes(q) ||
-          h.description.toLowerCase().includes(q) ||
-          h.type.toLowerCase().includes(q)
+          fuzzyMatch(h.name, search) ||
+          fuzzyMatch(h.area, search) ||
+          fuzzyMatch(h.address, search) ||
+          fuzzyMatch(h.city, search) ||
+          h.pincode.includes(search) ||
+          fuzzyMatch(h.description, search) ||
+          fuzzyMatch(h.type, search)
       );
     }
 
