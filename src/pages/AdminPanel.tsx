@@ -51,7 +51,7 @@ const AdminPanel = () => {
     checkAdmin();
   }, [navigate]);
 
-  const handleStatusChange = (id: string, status: string) => {
+  const handleStatusChange = (id: string, status: "pending" | "approved" | "rejected") => {
     updateStatus.mutate({ id, status }, {
       onSuccess: () => toast.success(`Property ${status}`),
       onError: () => toast.error("Failed to update status"),
