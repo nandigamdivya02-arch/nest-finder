@@ -192,15 +192,133 @@ export type Database = {
         }
         Relationships: []
       }
+      properties: {
+        Row: {
+          ac: boolean
+          address: string
+          amenities: string[]
+          area: string
+          availability: string
+          city: string
+          created_at: string
+          description: string
+          featured: boolean
+          food_included: boolean
+          furnished: string
+          id: string
+          images: string[]
+          lat: number | null
+          lng: number | null
+          name: string
+          owner_name: string
+          owner_phone: string
+          pincode: string
+          price_max: number
+          price_min: number
+          rating: number
+          reviews: number
+          room_types: string[]
+          status: Database["public"]["Enums"]["property_status"]
+          submitted_by: string | null
+          type: string
+          updated_at: string
+        }
+        Insert: {
+          ac?: boolean
+          address?: string
+          amenities?: string[]
+          area?: string
+          availability?: string
+          city?: string
+          created_at?: string
+          description?: string
+          featured?: boolean
+          food_included?: boolean
+          furnished?: string
+          id?: string
+          images?: string[]
+          lat?: number | null
+          lng?: number | null
+          name: string
+          owner_name?: string
+          owner_phone?: string
+          pincode?: string
+          price_max?: number
+          price_min?: number
+          rating?: number
+          reviews?: number
+          room_types?: string[]
+          status?: Database["public"]["Enums"]["property_status"]
+          submitted_by?: string | null
+          type?: string
+          updated_at?: string
+        }
+        Update: {
+          ac?: boolean
+          address?: string
+          amenities?: string[]
+          area?: string
+          availability?: string
+          city?: string
+          created_at?: string
+          description?: string
+          featured?: boolean
+          food_included?: boolean
+          furnished?: string
+          id?: string
+          images?: string[]
+          lat?: number | null
+          lng?: number | null
+          name?: string
+          owner_name?: string
+          owner_phone?: string
+          pincode?: string
+          price_max?: number
+          price_min?: number
+          rating?: number
+          reviews?: number
+          room_types?: string[]
+          status?: Database["public"]["Enums"]["property_status"]
+          submitted_by?: string | null
+          type?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "admin" | "moderator" | "user"
+      property_status: "pending" | "approved" | "rejected"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -327,6 +445,9 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["admin", "moderator", "user"],
+      property_status: ["pending", "approved", "rejected"],
+    },
   },
 } as const

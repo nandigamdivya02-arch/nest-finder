@@ -13,6 +13,8 @@ import Dashboard from "./pages/Dashboard";
 import Playgrounds from "./pages/Playgrounds";
 import PlaygroundDetail from "./pages/PlaygroundDetail";
 import MyPlaygroundBookings from "./pages/MyPlaygroundBookings";
+import AdminPanel from "./pages/AdminPanel";
+import SubmitProperty from "./pages/SubmitProperty";
 import NotFound from "./pages/NotFound";
 import HomiiiAI from "./components/HomiiiAI";
 
@@ -35,6 +37,8 @@ const App = () => (
           <Route path="/playgrounds" element={<Playgrounds />} />
           <Route path="/playgrounds/:id" element={<PlaygroundDetail />} />
           <Route path="/playgrounds/my-bookings" element={<MyPlaygroundBookings />} />
+          <Route path="/admin" element={<AdminPanel />} />
+          <Route path="/submit-property" element={<SubmitProperty />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <HomiiiAI />
