@@ -130,6 +130,7 @@ const Navbar = () => {
             { to: "/", label: "Home", icon: Home },
             { to: "/listings", label: "Search", icon: Search },
             { to: "/playgrounds", label: "Play", icon: Trophy },
+            { to: "/playgrounds/my-bookings", label: "Bookings", icon: ClipboardList },
             { to: "/wishlist", label: "Wishlist", icon: Heart },
           ].map((item) => (
             <Link
