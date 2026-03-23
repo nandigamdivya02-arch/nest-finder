@@ -12,6 +12,7 @@ const Navbar = () => {
     { to: "/", label: "Home", icon: Home },
     { to: "/listings", label: "Properties", icon: Search },
     { to: "/playgrounds", label: "Playgrounds", icon: Trophy },
+    { to: "/playgrounds/my-bookings", label: "My Bookings", icon: ClipboardList },
     { to: "/wishlist", label: "Wishlist", icon: Heart },
     { to: "/#help-contact", label: "Help & Contact", icon: MessageCircle },
   ];
