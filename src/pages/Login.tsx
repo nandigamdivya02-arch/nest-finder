@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Mail, Phone, Eye, EyeOff, Home, Shield } from "lucide-react";
+import { Mail, Phone, Eye, EyeOff, Home, Shield, Loader2 } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 import loginHero from "@/assets/login-hero.jpg";
 
 const Login = () => {
@@ -16,13 +17,29 @@ const Login = () => {
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
+  const [loading, setLoading] = useState(false);
   const { toast } = useToast();
   const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({ title: "Login successful", description: "Welcome back!" });
-    navigate("/dashboard");
+    setLoading(true);
+    try {
+      const { error } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
+      if (error) {
+        toast({ title: "Login failed", description: error.message, variant: "destructive" });
+      } else {
+        toast({ title: "Login successful", description: "Welcome back!" });
+        navigate("/dashboard");
+      }
+    } catch (err: any) {
+      toast({ title: "Error", description: err.message, variant: "destructive" });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -241,8 +258,8 @@ const Login = () => {
                 </span>
               </div>
 
-              <Button type="submit" className="w-full h-12 text-base font-semibold shadow-glow">
-                Log In
+              <Button type="submit" className="w-full h-12 text-base font-semibold shadow-glow" disabled={loading}>
+                {loading ? <><Loader2 className="w-4 h-4 mr-2 animate-spin" /> Signing in...</> : "Log In"}
               </Button>
             </form>
           </Tabs>
