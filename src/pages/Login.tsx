@@ -258,8 +258,8 @@ const Login = () => {
                 </span>
               </div>
 
-              <Button type="submit" className="w-full h-12 text-base font-semibold shadow-glow">
-                Log In
+              <Button type="submit" className="w-full h-12 text-base font-semibold shadow-glow" disabled={loading}>
+                {loading ? <><Loader2 className="w-4 h-4 mr-2 animate-spin" /> Signing in...</> : "Log In"}
               </Button>
             </form>
           </Tabs>
