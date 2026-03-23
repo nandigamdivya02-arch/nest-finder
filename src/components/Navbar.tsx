@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Home, Search, CalendarDays, User, MessageCircle, Heart, Trophy } from "lucide-react";
+import { Menu, X, Home, Search, CalendarDays, User, MessageCircle, Heart, Trophy, ClipboardList } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import ThemeToggle from "./ThemeToggle";
 
@@ -12,6 +12,7 @@ const Navbar = () => {
     { to: "/", label: "Home", icon: Home },
     { to: "/listings", label: "Properties", icon: Search },
     { to: "/playgrounds", label: "Playgrounds", icon: Trophy },
+    { to: "/playgrounds/my-bookings", label: "My Bookings", icon: ClipboardList },
     { to: "/wishlist", label: "Wishlist", icon: Heart },
     { to: "/#help-contact", label: "Help & Contact", icon: MessageCircle },
   ];
@@ -129,6 +130,7 @@ const Navbar = () => {
             { to: "/", label: "Home", icon: Home },
             { to: "/listings", label: "Search", icon: Search },
             { to: "/playgrounds", label: "Play", icon: Trophy },
+            { to: "/playgrounds/my-bookings", label: "Bookings", icon: ClipboardList },
             { to: "/wishlist", label: "Wishlist", icon: Heart },
           ].map((item) => (
             <Link
